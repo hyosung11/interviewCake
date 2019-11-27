@@ -71,11 +71,11 @@ Balance runtime, space, implementation time, maintainability, and readability.
 - strings are expressed as arrays of 8-bit characters
 
 ### Pointers
-- pointer-based arrays create a tradeoff because they require less uninterrupted memory and can accommodate elements that aren't the same size, but it's slower because its' not cache-friendly
+- pointer-based arrays create a tradeoff because they require less uninterrupted memory and can accommodate elements that aren't the same size, but it's slower because it's not cache-friendly
 
 ### Dynamic Arrays
 - an array that resizes itself when it runs out of memory space.
-- in Java array is static and ArrayList is dynamic
+- in Java 'array' is static and 'ArrayList' is dynamic
 - How a dynamic array works
 1. Makes a new, bigger array (usually twice as big)
 2. Copies each element from the old array into the new array.
@@ -98,3 +98,41 @@ Balance runtime, space, implementation time, maintainability, and readability.
 - what power must we raise this base to, in order to get this answer?
 - log10(100) = "log base 10 of 100" = 2
 - use logarithms to solve for x when x is an exponent
+
+### Logarithms in binary trees
+- perfect tree
+- nodes on the last level = (n + 1) / 2
+- O(log n) in usage for O(log2 n)
+
+## Array
+Big O worst case
+- space O(n)
+- lookup O(1)
+- append O(1)
+- insert O(n)
+- delete O(n)
+
+Strengths:
+- fast lookups at O(1)
+- fast appends to add new element at the end of the array O(1)
+
+Weaknesses:
+- fixed size (unless it's a dynamic array)
+- costly inserts and deletes O(n)
+
+### Array Slicing
+myArray.slice(startIndex, endIndex)
+myArray.slice(startIndex)
+
+- Hidden time and space cost
+1. allocating a new array
+2. copying the elements from the original array to the new array O(n)
+
+myArray.slice(1).forEach(item => {
+  // Whoops, I just spent O(n) time and space!
+});
+
+### In-Place Algorithm
+- an in-place function modifies data structures or objects outside its own stack frame
+- the call stack is what a program uses to keep track of function calls.
+- the call stack is made up of stack frames: one for each function call
