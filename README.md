@@ -136,3 +136,32 @@ myArray.slice(1).forEach(item => {
 - an in-place function modifies data structures or objects outside its own stack frame
 - the call stack is what a program uses to keep track of function calls.
 - the call stack is made up of stack frames: one for each function call
+- function's stack frame stores
+1. local variables
+2. arguments passed into the function
+3. information about the caller's stack frame
+4. the return address - what the program should do after the function returns (i.e.: where it should "return to"). This is usually somewhere in the middle of the caller's code.
+- working in-place is a good way to save time and space O(1)
+- in-place algorithms can cause side effects as your input is "destroyed" or "altered"
+- out-of-place algorithms are considered safer because they avoid side effects.
+
+## Dynamic Array
+- automatic resizing
+
+Strengths:
+- fast lookups O(1)
+- variable size
+- cache-friendly
+
+Weaknesses:
+- slow worst-case appends O(n)
+- costly inserts and deletes O(n)
+
+Size vs. Capacity
+- size is the number of elements currently in the array
+- capacity is the total amount of space available
+
+### Amortized cost of appending
+1. The time cost of each special O(n) "doubling append" doubles each time.
+2. At the same time, the number of O(1) appends you get until the next doubling append also doubles.
+- since these two things sort of "cancel out" we can say each append has an average cost or amortized cost of O(1)
